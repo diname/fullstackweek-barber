@@ -26,7 +26,7 @@ const SideMenu = () => {
 
       {data?.user ? (
         <div className="flex justify-between px-5 py-6 items-center">
-          <div className="flex item-center gap-3 ">
+          <div className="flex items-center gap-3 ">
             <Avatar>
               <AvatarImage src={data.user?.image ?? ''} />
             </Avatar>
