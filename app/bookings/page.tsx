@@ -22,6 +22,7 @@ const BookingPage = async () => {
           gte: new Date()
         }
       },
+      orderBy: { date: 'asc' },
       include: {
         service: true,
         barbershop: true
@@ -37,7 +38,8 @@ const BookingPage = async () => {
       include: {
         service: true,
         barbershop: true
-      }
+      },
+      orderBy: { date: 'desc' }
     })
   ])
 
@@ -47,9 +49,11 @@ const BookingPage = async () => {
       <div className="px-5 py-6">
         <h1 className="text-xl font-bold">Agendamentos</h1>
 
-        <h2 className="text-gray-400 uppercase font-bold text-sm mt-6 mb-3">
-          Confirmados
-        </h2>
+        {confirmedBookings.length === 0 && finishedBookings.length === 0 && (
+          <h2 className="text-gray-400 uppercase font-bold text-sm mt-6 mb-3">
+            Confirmados
+          </h2>
+        )}
 
         <div className="flex flex-col gap-3">
           {confirmedBookings.map((booking) => (
